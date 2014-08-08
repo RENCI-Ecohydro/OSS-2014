@@ -1,0 +1,17 @@
+Data Name,Data URL,Downloaded by,Date Downloaded,Metadata,Metadata Link,Research Paper,Google Drive Folder
+"Land Cover 100 Meter Resolution - Conterminous US, Albers Proj",http://dds.cr.usgs.gov/pub/data/nationalatlas/ldco48i0100a.tif_nt00836.tar.gz,Tony Chang,7/24/2014,"Twenty-one classes of land cover, such as deciduous and evergreen forests, shrubland, orchards, and cropland at a ground resolution of 100 meters. This map layer is comprised of four separate Land Cover files for the conterminous United States, Alaska, Hawaii, and Puerto Rico and the U.S. Virgin Islands. ",http://nationalatlas.gov/mld/ldco100.html,NA,
+Global Forest Change 2000–2012,http://earthenginepartners.appspot.com/science-2013-global-forest/download.html,Tony Chang,7/23/2014-7/24/2014,"Results from time-series analysis of 654,178 Landsat 7 ETM+ images in characterizing global forest extent and change from 2000 through 2012",http://www.earthenginepartners.appspot.com/science-2013-global-forest/download.html,DOI: 10.1126/science.1244693,
+Watershed Boundary Dataset; 12-Digit Watersheds Dissolved to 8-Digit Watersheds,https://catalog.data.gov/dataset/watershed-boundary-dataset-12-digit-watersheds-dissolved-to-8-digit-watersheds,Tony Chang,7/25/2014,This dataset is the digital hydrologic unit boundary layer for the 8-digit subwatershed boundaries for the conterminous United States.,https://catalog.data.gov/harvest/object/2ede6168-c50b-4726-855c-463e5bf9ad3a/html,NA,
+National Land Cover Data Change 2001-2011,http://www.mrlc.gov/nlcd11_data.php,Mike Treglia,7/25/2014,Land cover of pixels that have changed from 2001-2011,With downloaded file,NA,
+National Land Cover Data From To Change 2001-2011,http://www.mrlc.gov/nlcd11_data.php,Mike Treglia,7/26/2014,"Raster of pixels with metric of ""from"" and ""to"" land cover types",With downloaded file,NA,
+Pests_USFS Aerial Survey [Northeast],"http://www.fs.usda.gov/detail/r1/forest-grasslandhealth/?cid=stelprdb5366459; http://www.fs.usda.gov/detail/r6/forest-grasslandhealth/insects-diseases/?cid=stelprd3791643
+",Mike Treglia,7/28/2014,"Yearly shapefiles based on fly-overs, that map what areas have been disturbed by forest pests",With downloaded file [Generally],NA,https://drive.google.com/folderview?id=0B2gm4ZG9WDqvRE1yWDZuRkhZUWc&usp=sharing
+NWIS Stream Gauge Dataset,http://water.usgs.gov/GIS/dsdl/USGS_Streamgages-NHD_Locations_Shape.zip,Tony Chang,7/26/2014,Shapefiles of gauge data up to water year 20030930,http://water.usgs.gov/GIS/metadata/usgswrd/XML/streamgages.xml#stdorder,NA,
+Modis Burned Area Products,http://modis-fire.umd.edu/index.html,John Lovette,7/28/2014,500m raster grid with julian date of day burned. Data comes from MODIS. Data transformed with python script written by Tony. Need username (user) and password (burnt_data) to ftp download.,ftp://ba1.geog.umd.edu/Collection51/MODIS_Burned_Area_Collection51_User_Guide_3.0.pdf,DOI: 10.1016/j.rse.2005.04.007 and DOI: 10.1016/j.rse.2008.05.013,
+MODIS land cover type project,https://lpdaac.usgs.gov/products/modis_products_table/mcd12q1,John Lovette,8/5/2014,500m raster grid of land cover type with ~5 classes for forest cover type. Currently only downloaded 2006 data but can get yearly data from 2001-2012,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+Possible for later use,,,,,,,
+USFS regional forest type dataset (need DataBasin Login),http://databasin.org/search/#query=forest%20type&type=dataset&scope=all,Not downloaded,,Vectorized forest type dataset for US broken in to 6 regions. 28 forest classes exist across conus,,,

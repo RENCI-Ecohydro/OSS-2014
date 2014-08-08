@@ -1,0 +1,23 @@
+library(dataRetrieval)
+library(EGRET)
+siteNumber<-"01491000"
+parameterCd<-"00618"
+#we might want to be smarter about how we pick start/end dates based on water quality samples
+startDate<-"1999-10-01"
+endDate<-"2012-10-31"
+Daily<-getDVData(siteNumber, "00060", startDate, endDate)
+INFO<-getMetaData(siteNumber, parameterCd, interactive=F)
+#INFO$ShortName<-"Baisman Run"
+INFO<-setPA()
+
+Sample<-getSampleData(siteNumber, parameterCd, startDate, endDate)
+Sample<-mergeReport()
+#annualSeries<-makeAnnualSeries()
+modelEstimation()
+
+
+Annual_01491000<-tableResults(returnDataFrame=TRUE)
+write.csv(Annual_01491000, file="BARN.NO3_Annual.csv")
+Sample_01491000<-Sample
+Daily_01491000<-Daily
+INFO_01491000<-INFO

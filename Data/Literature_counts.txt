@@ -1,0 +1,9 @@
+'Water measures', 'Disturbance type', 'Count'
+'Quantity', 'Insect', 461
+'Quantity', 'Human', 23600
+'Quantity', 'Fire', 4170
+'Quantity', 'Weather', 243
+'Quantity and Quality', 'Insect', 185
+'Quantity and Quality', 'Human', 5330
+'Quantity and Quality', 'Fire', 791
+'Quantity and Quality', 'Weather', 85

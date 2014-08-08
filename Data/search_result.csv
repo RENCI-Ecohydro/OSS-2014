@@ -1,0 +1,31 @@
+ forest + streamflow + pine bark beetle ,40,Insect,Quant
+ forest + streamflow + gypsy moth ,253,Insect,Quant
+ forest + streamflow + woolly adelgid ,149,Insect,Quant
+ forest + streamflow + asian longhorned beetle ,19,Insect,Quant
+ forest + streamflow + logging ,9970,Human,Quant
+ forest + streamflow + deforestation ,6210,Human,Quant
+ forest + streamflow + urbanization ,7420,Human,Quant
+ forest + streamflow + wildfire ,4170,Fire,Quant
+ forest + streamflow + ice storm ,223,Weather,Quant
+ forest + streamflow + hurrican ,20,Weather,Quant
+ forest + streamflow + nitrate + pine bark beetle ,10,Insect,Quant and Qual
+ forest + streamflow + nitrate + gypsy moth ,114,Insect,Quant and Qual
+ forest + streamflow + nitrate + woolly adelgid ,54,Insect,Quant and Qual
+ forest + streamflow + nitrate + asian longhorned beetle ,7,Insect,Quant and Qual
+ forest + streamflow + nitrate + logging ,2180,Human,Quant and Qual
+ forest + streamflow + nitrate + deforestation ,1180,Human,Quant and Qual
+ forest + streamflow + nitrate + urbanization ,1970,HUman,Quant and Qual
+ forest + streamflow + nitrate + wildfire ,791,Fire,Quant and Qual
+ forest + streamflow + nitrate + ice storm ,80,Weather,Quant and Qual
+ forest + streamflow + nitrate + hurrican ,5,Weather,Quant and Qual
+,,,
+ forest + streamflow + nitrate + biodiversity + pine bark beetle ,7,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + gypsy moth ,49,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + woolly adelgid ,32,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + asian longhorned beetle ,7,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + logging ,672,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + deforestation ,571,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + urbanization ,756,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + wildfire ,325,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + ice storm ,28,,Quant and Qual
+ forest + streamflow + nitrate + biodiversity + hurrican ,2,,Quant and Qual
