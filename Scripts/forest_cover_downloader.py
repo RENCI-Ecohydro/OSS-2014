@@ -33,8 +33,12 @@ def gen_ulc(lat,lon):
 if __name__ == "__main__":
 	variable_names = np.array(['treecover2000','loss', 'gain', 'lossyear', 'datamask', 'first', 'last']) #finished these variables 07.23.14
 	localworkspace = 'C://Users/tony/OSS/Project/data/Hansen/' #change this workspace to your specific drive that you desire
-	latlist = np.arange(30,60,10) #minor changes to make...modified 07.23.14
-	lonlist = np.arange(70,140,10)
+	minX = 130 #the coordinates entered in intervals of '10'. 
+	maxX = 70  #negative longitudes represented with positives
+	minY = 30
+	maxY = 50
+	latlist = np.arange(minY,maxY+10,10) 
+	lonlist = np.arange(maxX,minX+10,10)
 	for var in variable_names:
 		for lat in latlist:
 			for lon in lonlist:
