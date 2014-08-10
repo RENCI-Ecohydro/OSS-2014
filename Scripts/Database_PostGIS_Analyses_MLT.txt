@@ -1,0 +1,88 @@
+﻿#############################
+#This code contains a combination of command code and SQL to extract the number pixel with forest, and of forest loss by yar, by watershed.
+#Tested using Cygwin on Win7 x64, and with Postgres 9.3.5 and PostGIS 2.1.3
+############################
+#Note - ths is not meant to be run as a single script - run it one line at a time, following instructions indicated by hash-marks; also, for SQL, comments are indicated by "--" preceeding the line
+#File names will have to be changed for user's computer
+
+#Author: Michael L. Treglia
+#E-mail: mlt35@tamu.edu/mtreglia@gmail.com
+
+
+
+
+#Migrate to program file for PostgresSQL: 
+cd /cygdrive/c/Program\ Files/PostgreSQL/9.3/bin
+
+#Create database in shell/terminal
+./createdb southeast -h127.0.0.1 -U postgres
+
+#Enter the database from command line: 
+psql -h 127.0.0.1 -U postgres -d southeast
+
+#Make the database a spatial database
+CREATE EXTENSION postgis;
+
+#Get out of the database (ctrl+z in Cygwin)
+
+#Import a shapefile (basins clipped to the Southeastern US by Mike - tiles of 40x80 and 40x90 from Forest Change dataset)
+./shp2pgsql.exe -s 4326 d:/OSS\ Ecohydrology\ Group/Basins_SouthEast/Basins_SouthEast public.basinsSE | psql -h 127.0.0.1 -U postgres -d southeast
+
+#Import raster of Treecover for the southeast (same tiles as listed above), where pixels with >= 90% forest cover were "1"; all others were 0
+./raster2pgsql.exe -I -C -F -s 4326 -t 1500x1500 d:/OSS\ Ecohydrology\ Group/treecover2000/treecover2000_southeast_reclass90Fi.tif public.forest2000 | psql -U postgres -h 127.0.0.1 -d southeast
+
+#Import raster of forest loss by year for the southeast (same tiles as listed above), for pixels where forest in 2000 was >=90%; this was obtained by multiplying the binary forest cover layer, above, by the original forest change layer
+./raster2pgsql.exe -I -C -F -s 4326 -t 1500x1500 d:/OSS\ Ecohydrology\ Group/ForestLoss_Base90pct_IntGdal.tif public.forCh_base90pct_int | psql -U postgres -h 127.0.0.1 -d southeast
+
+
+#Open the database
+psql -h 127.0.0.1 -U postgres -d southeast
+
+##The SQL Code needed to  calculate # of pixels of forest that was lost in each year, from 2001-2012, by watershed - Can be run through the Postgres Admnistrative tool, or through the command line, after entering the database via the previous command. Note, in SQL, # is NOT comment; to comment things out use the "--" before text
+--This code works for just the southeast
+CREATE TABLE public.ForChYr_CountInt1 AS
+  SELECT
+    gage_id, (value_count).value, SUM((value_count).count) AS count
+  FROM
+    (
+    SELECT
+      gage_id,
+      rid,
+      ST_ValueCount(
+        ST_Union(ST_Clip(rast, geom, TRUE)), 1, FALSE, ARRAY[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+              ) value_count
+    FROM
+      (SELECT gage_id, geom FROM basinsse) v,
+      (SELECT rid, rast FROM forch_base90pct_int) r
+    WHERE ST_Intersects(rast, geom)
+    GROUP BY gage_id, rid, geom
+    ) i
+  GROUP BY gage_id, value
+  ORDER BY gage_id, value ;
+  
+#Calculate the # of pixels that were forest in 2000 (>=90%), by watershed.
+CREATE TABLE public.forestcov2000_Count AS
+  SELECT
+    gage_id, (value_count).value, SUM((value_count).count) AS count
+  FROM
+    (
+    SELECT
+      gage_id,
+      rid,
+      ST_ValueCount(
+        ST_Union(ST_Clip(rast, geom, TRUE)), 1, FALSE, ARRAY[0, 1]
+              ) value_count
+    FROM
+      (SELECT gage_id, geom FROM basinsse) v,
+      (SELECT rid, rast FROM forest2000) r
+    WHERE ST_Intersects(rast, geom)
+    GROUP BY gage_id, rid, geom
+    ) i
+  GROUP BY gage_id, value
+ ORDER BY gage_id, value ;
+ 
+ 
+ #From SQL, export the tables to .csv
+ copy forestcov2000_count to 'D:/ForestCov2000_Count.csv' delimiter ',' CSV HEADER;
+ 
+ copy ForChYr_CountInt1 to 'D:/ForChYr_CountInt1.csv' delimiter ',' CSV HEADER;
