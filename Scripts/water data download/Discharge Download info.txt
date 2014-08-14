@@ -1,0 +1,6 @@
+All days had 0.000117141647620013 cms added to the discharge value.
+All days had 4.42634163935052e-05 cms added to the discharge value.
+There are 4749 data points, and 4749 days.
+discharge data jumps from 2009-09-30 to 2010-10-01There were 1571 zero flow days
+There are 4293 data points, and 4293 days.
+There were 3522 zero flow days 
